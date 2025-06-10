@@ -31,6 +31,7 @@ def cgContent(dnaSeq):
         else:
             cgPer = ((cBase + gBase)/totalBases)*100
 
+        gcSkew = (gBase-cBase) / (gBase+cBase)
         # Store results into dictionary
         result[seqID] = {
             'A': aBase,
@@ -38,7 +39,8 @@ def cgContent(dnaSeq):
             'C': cBase,
             'G': gBase,
             'Total': totalBases,
-            'CG_Content': round(cgPer, 2)
+            'CG_Content': round(cgPer, 2),
+            'CG_Skew': round(gcSkew, 2)
         }
 
     return result
